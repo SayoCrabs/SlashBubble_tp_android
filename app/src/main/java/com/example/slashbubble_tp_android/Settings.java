@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 public class Settings extends AppCompatActivity {
     private static final String TAG = "Settings";
+    LinearLayout layoutSound;
     SeekBar soundVolume;
     CheckBox sound;
 
@@ -18,19 +20,17 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        sound = (CheckBox) findViewById(R.id.sound);
-        sound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-                                         {
+        layoutSound = findViewById(R.id.layoutSound);
+        soundVolume = findViewById(R.id.soundVolume);
+        sound = findViewById(R.id.sound);
+        sound.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked)
+            {
 
-                                             @Override
-                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                                 if(isChecked)
-                                                 {
-                                                     Log.v(TAG, "Checked");
-                                                 }
+                Log.v(TAG, "unChecked");
+            }
 
-                                             }
-                                         }
+        }
         );
 
     }

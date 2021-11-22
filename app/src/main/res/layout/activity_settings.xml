@@ -7,6 +7,7 @@
     tools:context=".Settings">
 
     <LinearLayout
+        android:id="@+id/layoutSound"
         android:layout_width="195dp"
         android:layout_height="298dp"
         android:gravity="center"
