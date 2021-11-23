@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="start_button">Commencer</string>
+
+    <!-- Button name -->
+    <string name="button_shop">Boutique</string>
+    <string name="credit_button">Credit</string>
+    <string name="quit_button">Quitter</string>
+    <string name="sound_checkbox">Son</string>
+    <string name="back_button">Retour</string>
+
+    <!-- language -->
+    <string name="fr_language">Français</string>
+    <string name="en_language">Anglais</string>
+</resources>

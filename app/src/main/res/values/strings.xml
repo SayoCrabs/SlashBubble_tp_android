@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">SlashBubble_tp_android</string>
+    <string name="app_name" translatable="false">SlashBubble_tp_android</string>
+
+    <!-- Button name -->
+    <string name="start_button">Start</string>
+    <string name="button_shop">Shop</string>
+    <string name="credit_button">Credit</string>
+    <string name="quit_button">Quit</string>
+    <string name="sound_checkbox">Sound</string>
+    <string name="back_button">Back</string>
+
+    <!-- Language -->
+    <string name="fr_language">French</string>
+    <string name="en_language">English</string>
+
 </resources>

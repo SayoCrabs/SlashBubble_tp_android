@@ -46,25 +46,25 @@
             android:id="@+id/btnStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Commencer" />
+            android:text="@string/start_button" />
 
         <Button
             android:id="@+id/btnShop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Boutique" />
+            android:text="@string/button_shop" />
 
         <Button
             android:id="@+id/btnCredit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Credit" />
+            android:text="@string/credit_button" />
 
         <Button
             android:id="@+id/btnQuit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quitter" />
+            android:text="@string/quit_button" />
 
     </LinearLayout>
 

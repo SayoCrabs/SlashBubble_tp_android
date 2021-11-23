@@ -22,30 +22,24 @@
             android:id="@+id/sound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Son"/>
+            android:text="@string/sound_checkbox"/>
 
         <SeekBar
             android:id="@+id/soundVolume"
             android:layout_width="100dp"
             android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/btnShop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Boutique" />
+        <Spinner
+            android:id="@+id/spinnerLanguage"
+            android:layout_width="144dp"
+            android:layout_height="114dp"
+            android:layout_weight="1" />
 
         <Button
-            android:id="@+id/btnCredit"
+            android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Credit" />
-
-        <Button
-            android:id="@+id/btnQuit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quitter" />
+            android:text="@string/back_button" />
 
     </LinearLayout>
 
