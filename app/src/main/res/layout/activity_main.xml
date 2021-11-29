@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="532dp"
         android:singleLine="true"
-        android:text="Smash Bubble"
+        android:text="@string/title"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

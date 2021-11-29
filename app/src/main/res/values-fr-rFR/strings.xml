@@ -13,4 +13,7 @@
     <!-- language -->
     <string name="fr_language">Français</string>
     <string name="en_language">Anglais</string>
+    <string name="alert_quit_message">Voulez vous vraiment quitter l\'application ?</string>
+    <string name="warning">Attention !</string>
+    <string name="quit">Quitter</string>
 </resources>

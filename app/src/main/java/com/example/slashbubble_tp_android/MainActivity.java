@@ -50,19 +50,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             case R.id.btnStart:
             {
-                Intent game = new Intent(context, Game.class);
+                Intent game = new Intent(context, GameActivity.class);
                 startActivity(game);
                 break;
             }
             case R.id.btnShop:
             {
-                Intent shop = new Intent(context, Shop.class);
+                Intent shop = new Intent(context, ShopActivity.class);
                 startActivity(shop);
                 break;
             }
             case R.id.btnCredit:
             {
-                Intent credit = new Intent(context, Credit.class);
+                Intent credit = new Intent(context, CreditActivity.class);
                 startActivity(credit);
                 break;
             }
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             case R.id.btnSetting:
             {
-                Intent settings = new Intent(context, Settings.class);
+                Intent settings = new Intent(context, SettingsActivity.class);
                 startActivity(settings);
                 break;
             }
@@ -90,13 +90,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-        builder.setMessage("Voulez vous vraiment quitter l'application ?")
-                .setTitle("Attention !")
-                .setPositiveButton("Continuer", (dialog, which) -> {
+        builder.setMessage(App.getAppResources().getString(R.string.alert_quit_message))
+                .setTitle(App.getAppResources().getString(R.string.warning))
+                .setPositiveButton(App.getAppResources().getString(R.string.quit), (dialog, which) -> {
                     System.exit(0);
                     dialog.dismiss();
                 })
-                .setNegativeButton("Annuler",(dialog, which) -> {
+                .setNegativeButton(App.getAppResources().getString(R.string.back_button),(dialog, which) -> {
                     dialog.dismiss();
                 });
         AlertDialog alert = builder.create();

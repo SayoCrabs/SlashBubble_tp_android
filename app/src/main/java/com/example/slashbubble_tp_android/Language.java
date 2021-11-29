@@ -42,9 +42,9 @@ class LanguageDataUtils {
 
     public static Language[] getLanguages()  {
 
-        Language fr = new Language(App.getAppResources().getString(R.string.fr_language), true);
-        Language en = new Language(App.getAppResources().getString(R.string.en_language), false);
+        Language fr = new Language(App.getAppResources().getString(R.string.fr_language), false);
+        Language en = new Language(App.getAppResources().getString(R.string.en_language), true);
 
-        return new Language[]{fr, en};
+        return new Language[]{en, fr};
     }
 }
