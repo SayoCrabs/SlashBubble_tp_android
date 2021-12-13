@@ -19,4 +19,9 @@
     <string name="warning">Warning !</string>
     <string name="quit">Quit</string>
 
+    <!-- Color -->
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+
 </resources>

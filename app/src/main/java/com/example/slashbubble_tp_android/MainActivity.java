@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.slashbubble_tp_android.game.GameActivity;
+import com.example.slashbubble_tp_android.settings.SettingsActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MyActivity";
 

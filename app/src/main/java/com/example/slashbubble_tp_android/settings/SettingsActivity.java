@@ -1,30 +1,22 @@
-package com.example.slashbubble_tp_android;
+package com.example.slashbubble_tp_android.settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.util.ArraySet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import com.example.slashbubble_tp_android.MainActivity;
+import com.example.slashbubble_tp_android.R;
 
 public class SettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settings";

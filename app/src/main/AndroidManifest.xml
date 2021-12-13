@@ -18,11 +18,11 @@
             android:name=".ShopActivity"
             android:exported="true" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".settings.SettingsActivity"
             android:label="@string/fr_language"
             android:exported="true" />
         <activity
-            android:name=".GameActivity"
+            android:name=".game.GameActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

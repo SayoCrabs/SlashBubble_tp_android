@@ -1,4 +1,7 @@
-package com.example.slashbubble_tp_android;
+package com.example.slashbubble_tp_android.settings;
+
+import com.example.slashbubble_tp_android.App;
+import com.example.slashbubble_tp_android.R;
 
 public class Language {
     private String name;
