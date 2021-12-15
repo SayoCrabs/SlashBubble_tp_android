@@ -1,5 +1,7 @@
 package com.example.slashbubble_tp_android.game;
 
+import android.widget.TextView;
+
 import com.example.slashbubble_tp_android.App;
 import com.example.slashbubble_tp_android.R;
 
@@ -10,7 +12,6 @@ public class ColorManager {
 
     // A mettre en bdd
     List<String> colorName = new ArrayList<>();
-
     public ColorManager()
     {
         colorName.add(App.getAppResources().getString(R.string.red));
@@ -18,7 +19,7 @@ public class ColorManager {
         colorName.add(App.getAppResources().getString(R.string.green));
     }
 
-    public String changeColorName ()
+    public String getNewColorText()
     {
         int r = (int) (0 + Math.random() * (colorName.toArray().length - 0));
         return colorName.get(r);

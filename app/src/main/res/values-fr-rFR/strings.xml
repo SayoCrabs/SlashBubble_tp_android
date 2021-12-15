@@ -19,4 +19,5 @@
     <string name="red">Rouge</string>
     <string name="blue">Bleu</string>
     <string name="green">Vert</string>
+    <string name="resume">reprendre</string>
 </resources>
