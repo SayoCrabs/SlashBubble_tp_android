@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.slashbubble_tp_android.singleton.App;
 import com.example.slashbubble_tp_android.game.GameActivity;
 import com.example.slashbubble_tp_android.settings.SettingsActivity;
 
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView userName;
     Context context;
 
+    // end region
+
+    // region lifeCycle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +67,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             firstStartingApp();
         }
     }
+
+    // end region
+
+    // region onClick
 
     @Override
     public void onClick(View vi) {
@@ -128,6 +136,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alert.show();
     }
 
+    // end region
+
     public void firstStartingApp()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -141,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     SharedPreferences.Editor editor = App.getPrefs().edit();
                     editor.putString("userName", userNameEdition.getText().toString());
                     editor.commit();
+                    userName.setText(userNameEdition.getText().toString());
                     dialog.dismiss();
                 });
         AlertDialog alert = builder.create();

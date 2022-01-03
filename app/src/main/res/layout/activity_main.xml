@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/layoutUser"
-        android:layout_width="267dp"
+        android:layout_width="260dp"
         android:layout_height="50dp"
         app:layout_constraintEnd_toStartOf="@+id/btnSetting"
         app:layout_constraintRight_toLeftOf="parent"

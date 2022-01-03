@@ -1,8 +1,6 @@
 package com.example.slashbubble_tp_android.game;
 
-import android.widget.TextView;
-
-import com.example.slashbubble_tp_android.App;
+import com.example.slashbubble_tp_android.singleton.App;
 import com.example.slashbubble_tp_android.R;
 
 import java.util.ArrayList;
