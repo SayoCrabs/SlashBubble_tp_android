@@ -19,6 +19,10 @@
     <string name="warning">Warning !</string>
     <string name="quit">Quit</string>
 
+    <!-- Set User Name Message -->
+    <string name="set_user_name">Set your name here !</string>
+    <string name="valid">Valid</string>
+
     <!-- Color -->
     <string name="red">Red</string>
     <string name="blue">Blue</string>

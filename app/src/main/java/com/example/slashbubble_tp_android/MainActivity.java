@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.slashbubble_tp_android.game.GameActivity;
 import com.example.slashbubble_tp_android.settings.SettingsActivity;
@@ -16,14 +20,16 @@ import com.example.slashbubble_tp_android.settings.SettingsActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MyActivity";
 
-    // region Buttons
+    // region Attributes
 
     Button btnStart;
     Button btnShop;
     Button btnQuit;
     Button btnSettings;
     Button btnCredit;
+    ImageButton btnModifyUserName;
 
+    TextView userName;
     Context context;
 
     @Override
@@ -35,16 +41,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.context = this;
 
         // initialize button
-        btnStart = (Button) findViewById(R.id.btnStart);
+        btnStart = findViewById(R.id.btnStart);
         btnStart.setOnClickListener(this);
-        btnShop = (Button) findViewById(R.id.btnShop);
+        btnShop = findViewById(R.id.btnShop);
         btnShop.setOnClickListener(this);
-        btnCredit = (Button) findViewById(R.id.btnCredit);
+        btnCredit = findViewById(R.id.btnCredit);
         btnCredit.setOnClickListener(this);
-        btnQuit = (Button) findViewById(R.id.btnQuit);
+        btnQuit = findViewById(R.id.btnQuit);
         btnQuit.setOnClickListener(this);
-        btnSettings = (Button) findViewById(R.id.btnSetting);
+        btnSettings = findViewById(R.id.btnSetting);
         btnSettings.setOnClickListener(this);
+
+        btnModifyUserName = findViewById(R.id.btnModifyUserName);
+        btnModifyUserName.setOnClickListener(this);
+
+        userName = findViewById(R.id.userName);
+        userName.setText(App.getPrefs().getString("userName", null));
+
+        if(userName.getText().toString().isEmpty())
+        {
+            firstStartingApp();
+        }
     }
 
     @Override
@@ -80,6 +97,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(settings);
                 break;
             }
+            case R.id.btnModifyUserName:
+            {
+                firstStartingApp();
+                break;
+            }
             default:
             {
                 Log.v(TAG, "ERREUR");
@@ -100,6 +122,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     dialog.dismiss();
                 })
                 .setNegativeButton(App.getAppResources().getString(R.string.back_button),(dialog, which) -> {
+                    dialog.dismiss();
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public void firstStartingApp()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        final EditText userNameEdition = new EditText(context);
+
+        builder.setView(userNameEdition);
+        builder.setMessage(App.getAppResources().getString(R.string.set_user_name))
+                .setTitle(App.getAppResources().getString(R.string.warning))
+                .setPositiveButton(App.getAppResources().getString(R.string.valid), (dialog, which) -> {
+                    SharedPreferences.Editor editor = App.getPrefs().edit();
+                    editor.putString("userName", userNameEdition.getText().toString());
+                    editor.commit();
                     dialog.dismiss();
                 });
         AlertDialog alert = builder.create();

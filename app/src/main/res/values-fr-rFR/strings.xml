@@ -20,4 +20,6 @@
     <string name="blue">Bleu</string>
     <string name="green">Vert</string>
     <string name="resume">reprendre</string>
+    <string name="set_user_name">Entrer votre nom</string>
+    <string name="valid">Valider</string>
 </resources>

@@ -6,6 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/layoutUser"
+        android:layout_width="267dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnSetting"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="user name"
+            android:textSize="30dp"/>
+
+        <ImageButton
+            android:id="@+id/btnModifyUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/test"/>
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnSetting"
         android:layout_width="wrap_content"
@@ -13,7 +37,7 @@
         android:text="SetIcone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.947"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/layoutUser"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.001" />

@@ -3,13 +3,17 @@ package com.example.slashbubble_tp_android.game;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.slashbubble_tp_android.App;
 import com.example.slashbubble_tp_android.R;
 
 import java.util.ArrayList;
@@ -17,6 +21,8 @@ import java.util.List;
 
 public class GameActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "GameActivity";
+
+    // region Attributes
 
     // Layout
     ConstraintLayout layoutPauseEnd;
@@ -31,13 +37,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     TextView score; int scoreNb;
     TextView colorText;
 
-    // Image View
     ImageButton pauseButton;
 
+    // Image View
     ImageView firstImage;
     ImageView secondImage;
     ImageView thirdImage;
     List<ImageView> containerImage = new ArrayList<>();
+
+    // end region
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,7 +168,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * When the player loose display we change the value and interaction of the pause interface
      * and display it.
-     * And we save the result of the player.
+     * And we save the result of the player on the firebase.
+     * And the best score of the player on the preference.
      */
     public void gameOver()
     {
@@ -171,10 +180,17 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         buttonEnd.setText(R.string.quit);
         buttonEnd.setOnClickListener(view -> onDestroy());
 
+        // save the data of the best score/time
+        if(scoreNb >= App.getPrefs().getInt("bestScore", 0))
+        {
+            SharedPreferences.Editor editor = App.getPrefs().edit();
+            editor.putInt("bestScore", scoreNb);
+            editor.putString("bestTime", timerText.getText().toString());
+            editor.commit();
+        }
+
         layoutInterfaceGame.setVisibility(View.GONE);
         layoutPauseEnd.setVisibility(View.VISIBLE);
-
-        // save the data
     }
 
     public void resume(View v)
