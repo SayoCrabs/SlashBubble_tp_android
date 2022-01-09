@@ -27,9 +27,11 @@
     <string name="red">Red</string>
     <string name="blue">Blue</string>
     <string name="green">Green</string>
+    <string name="purple">Purple</string>
 
     <string name="resume">resume</string>
     <string name="pause" translatable="false">pause</string>
-    <string name="gameover" translatable="false">Game Over</string>
+    <string name="gameOver" translatable="false">Game Over</string>
+
 
 </resources>

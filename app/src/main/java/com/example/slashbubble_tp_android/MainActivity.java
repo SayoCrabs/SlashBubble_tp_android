@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnStart;
     Button btnShop;
     Button btnQuit;
-    Button btnSettings;
     Button btnCredit;
     ImageButton btnModifyUserName;
+    ImageButton btnSettings;
 
     TextView userName;
     Context context;

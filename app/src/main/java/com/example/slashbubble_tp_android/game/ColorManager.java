@@ -12,7 +12,7 @@ public class ColorManager {
     List<String> colorName = new ArrayList<>();
     public ColorManager()
     {
-        colorName.add(App.getAppResources().getString(R.string.red));
+        colorName.add(App.getAppResources().getString(R.string.purple));
         colorName.add(App.getAppResources().getString(R.string.blue));
         colorName.add(App.getAppResources().getString(R.string.green));
     }

@@ -9,7 +9,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutPauseEnd"
+        android:id="@+id/layoutPause"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
@@ -20,7 +20,7 @@
         android:visibility="gone">
 
         <TextView
-            android:id="@+id/textPauseEnd"
+            android:id="@+id/textPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="164dp"
@@ -44,41 +44,140 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutInterfaceGame"
+        android:id="@+id/layoutGameOver"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="3dp"
+        android:visibility="gone">
 
         <TextView
-            android:id="@+id/timerText"
+            android:id="@+id/textGameOver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="648dp"
-            android:text="timer"
+            android:layout_marginEnd="132dp"
+            android:layout_marginBottom="176dp"
+            android:text="@string/gameOver"
+            android:textColor="@color/white"
             android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/layoutBestScore"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layoutBestScore"
+            android:layout_width="396dp"
+            android:layout_height="114dp"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintBottom_toTopOf="@+id/quit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textUserNameBestScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:textColor="@color/purple_200"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textBestScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:textColor="@color/yellow"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textBestTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:textColor="@color/cyan"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/quit"
+            android:layout_width="186dp"
+            android:layout_height="59dp"
+            android:layout_marginEnd="112dp"
+            android:layout_marginBottom="236dp"
+            android:onClick="quit"
+            android:text="@string/quit"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutInterfaceGame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroundgame">
+
+        <LinearLayout
+            android:id="@+id/layoutTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="31dp"
+                android:layout_height="45dp"
+                android:background="@drawable/clockicon" />
+
+            <Space
+                android:layout_width="25dp"
+                android:layout_height="29dp"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/timerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="648dp"
+                android:textColor="@color/white"
+                android:text="timer"
+                android:textSize="30dp"/>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/score"
-            android:layout_width="137dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="688dp"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/backgroundtextview"
             android:text="score"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.058"
+            app:layout_constraintBottom_toBottomOf="@id/layoutTimer"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/colorText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="202dp"
+            android:layout_height="72dp"
             android:layout_marginBottom="536dp"
+            android:background="@drawable/backgroundtextview"
             android:text="COLOR"
-            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textSize="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -86,12 +185,11 @@
 
         <ImageButton
             android:id="@+id/pauseButton"
+            android:background="@drawable/pausebtn"
             android:layout_width="67dp"
             android:layout_height="67dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="4dp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <LinearLayout
             android:id="@+id/containerImage"
@@ -106,22 +204,34 @@
 
             <ImageView
                 android:id="@+id/firstImage"
-                android:transitionName="@string/red"
+                android:transitionName="@string/purple"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/test"/>
+                android:background="@drawable/round_violet"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
             <ImageView
                 android:id="@+id/secondImage"
                 android:transitionName="@string/blue"
                 android:layout_width="80dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@drawable/round_blue"/>
+
+            <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
             <ImageView
                 android:id="@+id/thirdImage"
                 android:transitionName="@string/green"
                 android:layout_width="80dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@drawable/round_green"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

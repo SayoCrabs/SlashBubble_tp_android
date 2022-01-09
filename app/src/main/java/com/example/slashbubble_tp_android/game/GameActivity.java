@@ -23,7 +23,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     // region Attributes
 
     // Layout
-    ConstraintLayout layoutPauseEnd;
+    ConstraintLayout layoutPause;
+    ConstraintLayout layoutGameOver;
     ConstraintLayout layoutInterfaceGame;
 
     // Class declaration
@@ -53,7 +54,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_game);
 
         // Layout
-        layoutPauseEnd = findViewById(R.id.layoutPauseEnd);
+        layoutGameOver = findViewById(R.id.layoutGameOver);
+        layoutPause = findViewById(R.id.layoutPause);
         layoutInterfaceGame = findViewById(R.id.layoutInterfaceGame);
 
         // Class instantiate
@@ -102,7 +104,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onPause();
         timerManager.timerTask.cancel();
         layoutInterfaceGame.setVisibility(View.GONE);
-        layoutPauseEnd.setVisibility(View.VISIBLE);
+        layoutPause.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -113,7 +115,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     protected void onRestart() {
         super.onRestart();
         timerManager.startTimer(timerText);
-        layoutPauseEnd.setVisibility(View.GONE);
+        layoutPause.setVisibility(View.GONE);
         layoutInterfaceGame.setVisibility(View.VISIBLE);
     }
 
@@ -130,15 +132,14 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
      */
     public void gameOver()
     {
-        TextView textEnd = (TextView) findViewById(R.id.textPauseEnd);
-        textEnd.setText(R.string.gameover);
+        TextView textUserName = findViewById(R.id.textUserNameBestScore);
+        textUserName.setText(App.prefs.getString("userName", null));
 
-        Button buttonEnd = (Button) findViewById(R.id.resume);
-        buttonEnd.setText(R.string.quit);
-        buttonEnd.setOnClickListener(view -> onDestroy());
+        TextView textBestScore = findViewById(R.id.textBestScore);
+        textBestScore.setText("" + App.prefs.getInt("bestSore", 0));
 
-        layoutInterfaceGame.setVisibility(View.GONE);
-        layoutPauseEnd.setVisibility(View.VISIBLE);
+        TextView textTime = findViewById(R.id.textBestTime);
+        textTime.setText(App.prefs.getString("bestTime", null));
 
         // save the local data
         if(scoreNb >= App.getPrefs().getInt("bestScore", 0))
@@ -148,6 +149,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             editor.putString("bestTime", timerText.getText().toString());
             editor.commit();
         }
+
+        layoutInterfaceGame.setVisibility(View.GONE);
+        layoutGameOver.setVisibility(View.VISIBLE);
 
         // save the data on firebase
         saveManager.writeNewScore(App.getPrefs().getString("userName", null),
@@ -159,6 +163,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     {
         onRestart();
     }
+
+    public void quit(View v)
+    {
+        onDestroy();
+    }
+
     // end region
 
     // region onClick
@@ -187,11 +197,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         colorText.setText(newColor);
         switch (newColor)
         {
-            case "Red":
+            /*case "Red":
             {
                 colorText.setTextColor(getResources().getColor(R.color.red));
                 break;
-            }
+            }*/
             case "Blue":
             {
                 colorText.setTextColor(getResources().getColor(R.color.blue));
@@ -202,10 +212,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 colorText.setTextColor(getResources().getColor(R.color.green));
                 break;
             }
+            case "Purple":
+            {
+                colorText.setTextColor(getResources().getColor(R.color.purple_200));
+                break;
+            }
         }
-
     }
-
-   //end region
-
+    //end region
 }
+
