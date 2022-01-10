@@ -17,6 +17,7 @@
     <!-- Alert Message -->
     <string name="alert_quit_message">Are you sure you want to quit the app?</string>
     <string name="warning">Warning !</string>
+    <string name="hello_world">Hello !</string>
     <string name="quit">Quit</string>
 
     <!-- Set User Name Message -->
@@ -32,6 +33,9 @@
     <string name="resume">resume</string>
     <string name="pause" translatable="false">pause</string>
     <string name="gameOver" translatable="false">Game Over</string>
+
+    <!-- Credit -->
+    <string name="your_meteo">Your meteo :</string>
 
 
 </resources>
