@@ -14,4 +14,13 @@ public class Scores {
         this.score = score;
         this.time = time;
     }
+
+    @Override
+    public String toString() {
+        return "Scores{" +
+                "username='" + username + '\'' +
+                ", score=" + score +
+                ", time='" + time + '\'' +
+                '}';
+    }
 }

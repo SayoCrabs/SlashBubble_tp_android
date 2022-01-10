@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.slashbubble_tp_android.controller.SaveManager;
+import com.example.slashbubble_tp_android.model.Scores;
 import com.example.slashbubble_tp_android.singleton.App;
 import com.example.slashbubble_tp_android.game.GameActivity;
 import com.example.slashbubble_tp_android.settings.SettingsActivity;
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MyActivity";
 
     // region Attributes
+
+    SaveManager saveOldBestScore;
 
     Button btnStart;
     Button btnShop;
@@ -43,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // initialize context
         this.context = this;
+
+        saveOldBestScore = new SaveManager();
 
         // initialize button
         btnStart = findViewById(R.id.btnStart);
@@ -148,6 +154,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder.setMessage(App.getAppResources().getString(R.string.set_user_name))
                 .setTitle(App.getAppResources().getString(R.string.warning))
                 .setPositiveButton(App.getAppResources().getString(R.string.valid), (dialog, which) -> {
+                    // Save on file the old userName with his best score
+                    saveOldBestScore.writeBestScoreOnTextFile(this, new Scores(
+                            App.prefs.getString("userName", null),
+                            App.prefs.getInt("bestSore", 0),
+                            App.prefs.getString("bestTime", null)));
+
+                    // change the userName
                     SharedPreferences.Editor editor = App.getPrefs().edit();
                     editor.putString("userName", userNameEdition.getText().toString());
                     editor.commit();
