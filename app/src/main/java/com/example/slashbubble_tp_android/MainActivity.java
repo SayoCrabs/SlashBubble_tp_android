@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.slashbubble_tp_android.controller.SaveManager;
+import com.example.slashbubble_tp_android.credit.CreditActivity;
 import com.example.slashbubble_tp_android.model.Scores;
 import com.example.slashbubble_tp_android.singleton.App;
 import com.example.slashbubble_tp_android.game.GameActivity;
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         builder.setView(userNameEdition);
         builder.setMessage(App.getAppResources().getString(R.string.set_user_name))
-                .setTitle(App.getAppResources().getString(R.string.warning))
+                .setTitle(App.getAppResources().getString(R.string.hello_world))
                 .setPositiveButton(App.getAppResources().getString(R.string.valid), (dialog, which) -> {
                     // Save on file the old userName with his best score
                     saveOldBestScore.writeBestScoreOnTextFile(this, new Scores(

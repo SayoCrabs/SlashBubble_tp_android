@@ -23,4 +23,6 @@
     <string name="set_user_name">Entrer votre nom</string>
     <string name="valid">Valider</string>
     <string name="purple">violet</string>
+    <string name="your_meteo">Vôtre meteo :</string>
+    <string name="hello_world">Bonjour !</string>
 </resources>
