@@ -25,4 +25,7 @@
     <string name="purple">violet</string>
     <string name="your_meteo">Vôtre meteo :</string>
     <string name="hello_world">Bonjour !</string>
+    <string name="language">langue</string>
+    <string name="localisation">localisation</string>
+    <string name="alert_change_localisation">Entrer vôtre nouvelle localisation</string>
 </resources>

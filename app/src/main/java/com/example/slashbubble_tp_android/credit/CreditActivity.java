@@ -38,7 +38,7 @@ public class CreditActivity extends AppCompatActivity {
 
         iconView = (ImageView) findViewById(R.id.icon);
         textMeteo = findViewById(R.id.textMeteo);
-        String meteo = App.getAppResources().getString(R.string.your_meteo) + App.prefs.getString("Localisation", "Toulouse");
+        String meteo = App.getAppResources().getString(R.string.your_meteo) + App.prefs.getString("localisation", "Toulouse");
         textMeteo.setText(meteo);
 
         getMeteo();
@@ -46,7 +46,7 @@ public class CreditActivity extends AppCompatActivity {
 
     public void getMeteo() {
         queue = Volley.newRequestQueue(this);
-        String url = "https://www.prevision-meteo.ch/services/json/" + App.prefs.getString("Localisation", "Toulouse");
+        String url = "https://www.prevision-meteo.ch/services/json/" + App.prefs.getString("localisation", "Toulouse");
 
         // Request a string response from the provided URL.
         stringRequest = new StringRequest(Request.Method.GET, url,

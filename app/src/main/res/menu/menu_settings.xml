@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:actionLayout="@layout/activity_main">
+    <item android:id="@+id/language"
+        android:title="@string/language">
+        <menu>
+            <item
+                android:id="@+id/en"
+                android:title="@string/en_language"/>
+            <item
+                android:id="@+id/fr"
+                android:title="@string/fr_language" />
+        </menu>
+    </item>
+    <item android:id="@+id/localisation"
+        android:title="@string/localisation"/>
+</menu>

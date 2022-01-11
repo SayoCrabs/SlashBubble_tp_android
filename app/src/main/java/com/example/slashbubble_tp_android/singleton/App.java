@@ -43,7 +43,8 @@ public class App extends Application {
             editor.putString("userName", "");
             editor.putInt("bestScore", 0);
             editor.putString("bestTime", "");
-            editor.putString("Localisation", "Toulouse");
+            editor.putString("language", "English");
+            editor.putString("localisation", "Toulouse");
             editor.commit();
         }
         return prefs;

@@ -16,8 +16,10 @@
 
     <!-- Alert Message -->
     <string name="alert_quit_message">Are you sure you want to quit the app?</string>
+    <string name="alert_change_localisation">Enter your new localisation</string>
     <string name="warning">Warning !</string>
     <string name="hello_world">Hello !</string>
+    <string name="modification" translatable="false">Modification !</string>
     <string name="quit">Quit</string>
 
     <!-- Set User Name Message -->
@@ -30,12 +32,15 @@
     <string name="green">Green</string>
     <string name="purple">Purple</string>
 
+    <!-- Game event -->
     <string name="resume">resume</string>
     <string name="pause" translatable="false">pause</string>
     <string name="gameOver" translatable="false">Game Over</string>
 
     <!-- Credit -->
     <string name="your_meteo">Your meteo :</string>
+    <string name="language">language</string>
+    <string name="localisation">localisation</string>
 
 
 </resources>

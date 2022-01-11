@@ -8,18 +8,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.slashbubble_tp_android.controller.SaveManager;
 import com.example.slashbubble_tp_android.credit.CreditActivity;
 import com.example.slashbubble_tp_android.model.Scores;
+import com.example.slashbubble_tp_android.settings.Language;
 import com.example.slashbubble_tp_android.singleton.App;
 import com.example.slashbubble_tp_android.game.GameActivity;
-import com.example.slashbubble_tp_android.settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MyActivity";
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // region Attributes
 
     SaveManager saveOldBestScore;
+    Language languageManager;
 
     Button btnStart;
     Button btnShop;
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.context = this;
 
         saveOldBestScore = new SaveManager();
+        languageManager = new Language();
 
         // initialize button
         btnStart = findViewById(R.id.btnStart);
@@ -60,8 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCredit.setOnClickListener(this);
         btnQuit = findViewById(R.id.btnQuit);
         btnQuit.setOnClickListener(this);
-        btnSettings = findViewById(R.id.btnSetting);
-        btnSettings.setOnClickListener(this);
 
         btnModifyUserName = findViewById(R.id.btnModifyUserName);
         btnModifyUserName.setOnClickListener(this);
@@ -104,12 +106,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnQuit:
             {
                 onBackPressed();
-                break;
-            }
-            case R.id.btnSetting:
-            {
-                Intent settings = new Intent(context, SettingsActivity.class);
-                startActivity(settings);
                 break;
             }
             case R.id.btnModifyUserName:
@@ -171,4 +167,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog alert = builder.create();
         alert.show();
     }
+
+    // region menu
+
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_settings, popup.getMenu());
+        popup.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.en:
+                    languageManager.changeAppLanguage(App.getAppResources().getString(R.string.en_language));
+                    return true;
+                case R.id.fr:
+                    languageManager.changeAppLanguage(App.getAppResources().getString(R.string.fr_language));
+                    return true;
+                case R.id.localisation:
+                    changeLocalisation();
+                    return true;
+                default:
+                    return true;
+            }
+        });
+        popup.show();
+    }
+
+    public void changeLocalisation()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        final EditText localisationEdition = new EditText(context);
+
+        builder.setView(localisationEdition);
+        builder.setMessage(App.getAppResources().getString(R.string.alert_change_localisation))
+                .setTitle(App.getAppResources().getString(R.string.modification))
+                .setPositiveButton(App.getAppResources().getString(R.string.valid), (dialog, which) -> {
+                    // change the localisation
+                    SharedPreferences.Editor editor = App.getPrefs().edit();
+                    editor.putString("localisation", localisationEdition.getText().toString());
+                    editor.commit();
+                    dialog.dismiss();
+                })
+                .setNegativeButton(App.getAppResources().getString(R.string.back_button),(dialog, which) -> {
+                    dialog.dismiss();
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    // end region
 }

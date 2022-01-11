@@ -18,10 +18,6 @@
             android:name=".ShopActivity"
             android:exported="true" />
         <activity
-            android:name=".settings.SettingsActivity"
-            android:label="@string/fr_language"
-            android:exported="true" />
-        <activity
             android:name=".game.GameActivity"
             android:exported="true" />
         <activity
