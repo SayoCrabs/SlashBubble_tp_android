@@ -20,6 +20,7 @@ import com.example.slashbubble_tp_android.controller.SaveManager;
 import com.example.slashbubble_tp_android.credit.CreditActivity;
 import com.example.slashbubble_tp_android.model.Scores;
 import com.example.slashbubble_tp_android.settings.Language;
+import com.example.slashbubble_tp_android.shop.ShopActivity;
 import com.example.slashbubble_tp_android.singleton.App;
 import com.example.slashbubble_tp_android.game.GameActivity;
 

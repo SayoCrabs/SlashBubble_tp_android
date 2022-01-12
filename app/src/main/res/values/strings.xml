@@ -31,6 +31,7 @@
     <string name="blue">Blue</string>
     <string name="green">Green</string>
     <string name="purple">Purple</string>
+    <string name="yellow">Yellow</string>
 
     <!-- Game event -->
     <string name="resume">resume</string>
@@ -42,5 +43,8 @@
     <string name="language">language</string>
     <string name="localisation">localisation</string>
 
+    <!-- Shop -->
+    <string name="default_package">Default</string>
+    <string name="stone_package">Precious stone</string>
 
 </resources>

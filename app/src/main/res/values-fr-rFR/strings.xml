@@ -28,4 +28,7 @@
     <string name="language">langue</string>
     <string name="localisation">localisation</string>
     <string name="alert_change_localisation">Entrer vôtre nouvelle localisation</string>
+    <string name="default_package">Défaut</string>
+    <string name="stone_package">Pierre précieuse</string>
+    <string name="yellow">Jaune</string>
 </resources>

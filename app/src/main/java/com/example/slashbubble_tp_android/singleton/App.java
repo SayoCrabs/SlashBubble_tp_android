@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.util.Log;
 
+import com.example.slashbubble_tp_android.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,8 +44,9 @@ public class App extends Application {
             editor.putString("userName", "");
             editor.putInt("bestScore", 0);
             editor.putString("bestTime", "");
-            editor.putString("language", "English");
+            editor.putString("language", App.getAppResources().getString(R.string.en_language));
             editor.putString("localisation", "Toulouse");
+            editor.putString("bubblePackage", App.getAppResources().getString(R.string.default_package));
             editor.commit();
         }
         return prefs;

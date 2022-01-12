@@ -8,7 +8,6 @@ import com.example.slashbubble_tp_android.R;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     ConstraintLayout layoutInterfaceGame;
 
     // Class declaration
-    ColorManager colorManager;
+    ColorTextManager colorTextManager;
     TimerManager timerManager;
     SaveManager saveManager;
 
@@ -59,7 +58,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         layoutInterfaceGame = findViewById(R.id.layoutInterfaceGame);
 
         // Class instantiate
-        colorManager = new ColorManager();
+        colorTextManager = new ColorTextManager();
         timerManager = new TimerManager(this);
         saveManager = new SaveManager();
 
@@ -87,6 +86,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             img.setOnClickListener(this);
         }
+
+        // initialize the bubble choose on the shop
+        confImage();
 
         // start timers
         timerManager.startTimer(timerText);
@@ -191,17 +193,24 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //end region
+
     public void changeColor()
     {
-        String newColor = colorManager.getNewColorText();
+        String newColor = colorTextManager.getNewColorText();
         colorText.setText(newColor);
         switch (newColor)
         {
-            /*case "Red":
+            case "Red":
             {
                 colorText.setTextColor(getResources().getColor(R.color.red));
                 break;
-            }*/
+            }
+            case "Yellow":
+            {
+                colorText.setTextColor(getResources().getColor(R.color.yellow));
+                break;
+            }
             case "Blue":
             {
                 colorText.setTextColor(getResources().getColor(R.color.blue));
@@ -219,6 +228,19 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-    //end region
+
+    public void confImage()
+    {
+        if (App.getAppResources().getString(R.string.stone_package).equals(App.prefs.getString("bubblePackage", App.getAppResources().getString(R.string.default_package))))
+        {
+            firstImage.setBackgroundResource(R.drawable.stone_pink);
+            firstImage.setTransitionName(App.getAppResources().getString(R.string.red));
+            secondImage.setBackgroundResource(R.drawable.stone_blue);
+            secondImage.setTransitionName(App.getAppResources().getString(R.string.blue));
+            thirdImage.setBackgroundResource(R.drawable.stone_yellow);
+            thirdImage.setTransitionName(App.getAppResources().getString(R.string.yellow));
+        }
+    }
+
 }
 
