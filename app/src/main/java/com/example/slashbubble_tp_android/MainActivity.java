@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnQuit;
     Button btnCredit;
     ImageButton btnModifyUserName;
-    ImageButton btnSettings;
 
     TextView userName;
     Context context;
@@ -65,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCredit.setOnClickListener(this);
         btnQuit = findViewById(R.id.btnQuit);
         btnQuit.setOnClickListener(this);
-
         btnModifyUserName = findViewById(R.id.btnModifyUserName);
         btnModifyUserName.setOnClickListener(this);
 
@@ -116,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             default:
             {
-                Log.v(TAG, "ERREUR");
+                //do nothing
                 break;
             }
         }
@@ -142,6 +139,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // end region
 
+    // region menu
+
+    /**
+     * Show a menu when user click on the setting button
+     * @param v
+     */
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_settings, popup.getMenu());
+        popup.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.en:
+                    languageManager.changeAppLanguage(App.getAppResources().getString(R.string.en_language));
+                    return true;
+                case R.id.fr:
+                    languageManager.changeAppLanguage(App.getAppResources().getString(R.string.fr_language));
+                    return true;
+                case R.id.localisation:
+                    changeLocalisation();
+                    return true;
+                default:
+                    return true;
+            }
+        });
+        popup.show();
+    }
+
+    // end region
+
+    // region alert dialog
+
+    /**
+     * If this is the first time that the user has launched the application or
+     * that he presses the button to modify his name, a dialog box is displayed
+     */
     public void firstStartingApp()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -165,34 +198,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     userName.setText(userNameEdition.getText().toString());
                     dialog.dismiss();
                 });
+
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    // region menu
-
-    public void showPopup(View v) {
-        PopupMenu popup = new PopupMenu(this, v);
-        MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.menu_settings, popup.getMenu());
-        popup.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.en:
-                    languageManager.changeAppLanguage(App.getAppResources().getString(R.string.en_language));
-                    return true;
-                case R.id.fr:
-                    languageManager.changeAppLanguage(App.getAppResources().getString(R.string.fr_language));
-                    return true;
-                case R.id.localisation:
-                    changeLocalisation();
-                    return true;
-                default:
-                    return true;
-            }
-        });
-        popup.show();
-    }
-
+    /**
+     * When the user want to change his location a dialogue box is displayed
+     */
     public void changeLocalisation()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

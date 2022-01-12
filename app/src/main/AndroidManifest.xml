@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
         <activity
-            android:name=".shop.CardChoiceActivity"
+            android:name=".shop.BubbleChoiceActivity"
             android:exported="true" />
         <activity
             android:name=".credit.CreditActivity"

@@ -9,10 +9,13 @@ import java.util.List;
 public class ColorTextManager {
 
     List<String> colorName = new ArrayList<>();
-    String stone = App.getAppResources().getString(R.string.stone_package);
+
+    /**
+     * Define which color can be display
+     */
     public ColorTextManager()
     {
-        if (stone.equals(App.prefs.getString("bubblePackage", App.getAppResources().getString(R.string.default_package))))
+        if (App.getAppResources().getString(R.string.stone_package).equals(App.prefs.getString("bubblePackage", App.getAppResources().getString(R.string.default_package))))
         {
             colorName.add(App.getAppResources().getString(R.string.red));
             colorName.add(App.getAppResources().getString(R.string.blue));
@@ -25,9 +28,12 @@ public class ColorTextManager {
 
     }
 
+    /**
+     * @return the color to display randomly
+     */
     public String getNewColorText()
     {
-        int r = (int) (0 + Math.random() * (colorName.toArray().length - 0));
+        int r = (int) (0 + Math.random() * (colorName.toArray().length));
         return colorName.get(r);
     }
 }

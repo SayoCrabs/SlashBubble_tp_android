@@ -9,18 +9,19 @@ import java.util.TimerTask;
 
 public class TimerManager extends AsyncTask {
 
-    // timer attributes
     Timer timer;
     TimerTask timerTask;
     Double time = 0.0;
 
     private Activity activity;
 
-    TimerManager(Activity activity)
+    // constructor
+    public TimerManager(Activity activity)
     {
         this.activity = activity;
         timer = new Timer();
     }
+
     void startTimer(TextView timerText) {
         timerTask = new TimerTask() {
             @Override

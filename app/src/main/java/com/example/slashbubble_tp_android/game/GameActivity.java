@@ -2,6 +2,7 @@ package com.example.slashbubble_tp_android.game;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.slashbubble_tp_android.singleton.App;
 import com.example.slashbubble_tp_android.R;
 
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.slashbubble_tp_android.controller.SaveManager;
 
 import java.util.ArrayList;
@@ -36,6 +38,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     TextView score; int scoreNb;
     TextView colorText;
 
+    // Image Button
     ImageButton pauseButton;
 
     // Image View
@@ -82,8 +85,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         containerImage.add(thirdImage);
 
         // add the onClickListener on all imageView in the List
-        for(ImageView img : containerImage)
-        {
+        for (ImageView img : containerImage) {
             img.setOnClickListener(this);
         }
 
@@ -100,7 +102,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * Here we stop the timer, hide the game interface and display a pause interface
-    **/
+     **/
     @Override
     protected void onPause() {
         super.onPause();
@@ -127,25 +129,23 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * When the player loose display we change the value and interaction of the pause interface
-     * and display it.
+     * When the player loose we display gameOver interface
+     * and display the actually bestScore (on local).
      * And we save the result of the player on the firebase.
      * And the best score of the player on the preference.
      */
-    public void gameOver()
-    {
+    public void gameOver() {
         TextView textUserName = findViewById(R.id.textUserNameBestScore);
         textUserName.setText(App.prefs.getString("userName", null));
 
         TextView textBestScore = findViewById(R.id.textBestScore);
-        textBestScore.setText("" + App.prefs.getInt("bestSore", 0));
+        textBestScore.setText(App.prefs.getInt("bestSore", 0));
 
         TextView textTime = findViewById(R.id.textBestTime);
         textTime.setText(App.prefs.getString("bestTime", null));
 
-        // save the local data
-        if(scoreNb >= App.getPrefs().getInt("bestScore", 0))
-        {
+        // save the local data if actual score is better than the bestScore
+        if (scoreNb >= App.getPrefs().getInt("bestScore", 0)) {
             SharedPreferences.Editor editor = App.getPrefs().edit();
             editor.putInt("bestScore", scoreNb);
             editor.putString("bestTime", timerText.getText().toString());
@@ -161,13 +161,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 timerManager.getTimerText());
     }
 
-    public void resume(View v)
-    {
+    public void resume(View v) {
         onRestart();
     }
 
-    public void quit(View v)
-    {
+    public void quit(View v) {
         onDestroy();
     }
 
@@ -175,64 +173,46 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
     // region onClick
     @Override
-    public void onClick(View vi)
-    {
-        if (vi.getTransitionName() == colorText.getText())
-        {
+    public void onClick(View vi) {
+        if (vi.getTransitionName() == colorText.getText()) {
             scoreNb++;
-            score.setText("" + scoreNb);
+            score.setText("" +scoreNb);
             changeColor();
-        }
-        else if (vi.getId() == R.id.pauseButton)
-        {
+        } else if (vi.getId() == R.id.pauseButton) {
             onPause();
-        }
-        else
-        {
-           gameOver();
+        } else {
+            gameOver();
         }
     }
 
     //end region
 
-    public void changeColor()
-    {
+    // region configuration
+    /**
+     * Apply the right color to the textColor
+     */
+    public void changeColor() {
         String newColor = colorTextManager.getNewColorText();
         colorText.setText(newColor);
-        switch (newColor)
-        {
-            case "Red":
-            {
-                colorText.setTextColor(getResources().getColor(R.color.red));
-                break;
-            }
-            case "Yellow":
-            {
-                colorText.setTextColor(getResources().getColor(R.color.yellow));
-                break;
-            }
-            case "Blue":
-            {
-                colorText.setTextColor(getResources().getColor(R.color.blue));
-                break;
-            }
-            case "Green":
-            {
-                colorText.setTextColor(getResources().getColor(R.color.green));
-                break;
-            }
-            case "Purple":
-            {
-                colorText.setTextColor(getResources().getColor(R.color.purple_200));
-                break;
-            }
+
+        if (newColor.equals(App.getAppResources().getString(R.string.red))) {
+            colorText.setTextColor(getResources().getColor(R.color.red));
+        } else if (newColor.equals(App.getAppResources().getString(R.string.yellow))) {
+            colorText.setTextColor(getResources().getColor(R.color.yellow));
+        } else if (newColor.equals(App.getAppResources().getString(R.string.blue))) {
+            colorText.setTextColor(getResources().getColor(R.color.blue));
+        } else if (newColor.equals(App.getAppResources().getString(R.string.green))) {
+            colorText.setTextColor(getResources().getColor(R.color.green));
+        } else if (newColor.equals(App.getAppResources().getString(R.string.purple))) {
+            colorText.setTextColor(getResources().getColor(R.color.purple_200));
         }
     }
 
-    public void confImage()
-    {
-        if (App.getAppResources().getString(R.string.stone_package).equals(App.prefs.getString("bubblePackage", App.getAppResources().getString(R.string.default_package))))
-        {
+    /**
+     * Set the bubble image choose by the user
+     */
+    public void confImage() {
+        if (App.getAppResources().getString(R.string.stone_package).equals(App.prefs.getString("bubblePackage", App.getAppResources().getString(R.string.default_package)))) {
             firstImage.setBackgroundResource(R.drawable.stone_pink);
             firstImage.setTransitionName(App.getAppResources().getString(R.string.red));
             secondImage.setBackgroundResource(R.drawable.stone_blue);
@@ -241,6 +221,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             thirdImage.setTransitionName(App.getAppResources().getString(R.string.yellow));
         }
     }
-
+    // end region
 }
 

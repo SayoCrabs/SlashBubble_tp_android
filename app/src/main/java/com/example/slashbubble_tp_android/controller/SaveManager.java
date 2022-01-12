@@ -6,20 +6,29 @@ import android.util.Log;
 import com.example.slashbubble_tp_android.singleton.App;
 import com.example.slashbubble_tp_android.model.Scores;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class SaveManager {
 
+    /**
+     * When the user has finished his game we save his score in firebase
+     * @param userName
+     * @param score
+     * @param time
+     */
     public void writeNewScore(String userName, Number score, String time) {
         Scores scores = new Scores(userName, score, time);
-
         App.myRef.child("id :").setValue(scores);
     }
 
+    /**
+     * When the user changes his name on the home page,
+     * we want to save the old best score with his name in a .txt file
+     * @param context
+     * @param data
+     */
     public void writeBestScoreOnTextFile(Context context, Scores data)
     {
         FileOutputStream fOut = null;

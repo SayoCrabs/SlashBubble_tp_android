@@ -6,6 +6,7 @@ import com.example.slashbubble_tp_android.singleton.App;
 
 public class Language {
 
+    // constructor
     public Language(){}
 
     public void changeAppLanguage(String languageSelected)
