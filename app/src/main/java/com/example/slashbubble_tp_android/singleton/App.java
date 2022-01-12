@@ -30,7 +30,7 @@ public class App extends Application {
                 "com.activity_main.app", Context.MODE_PRIVATE);
 
         resources = getResources();
-        //getTheDatabase();
+        getTheDatabase();
 
     }
 
