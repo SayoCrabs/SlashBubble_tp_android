@@ -156,7 +156,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         layoutGameOver.setVisibility(View.VISIBLE);
 
         // save the data on firebase
-        saveManager.writeNewScore(App.getPrefs().getString("userName", null),
+        saveManager.writeNewScore(App.prefs.getString("userName", null),
                 scoreNb,
                 timerManager.getTimerText());
     }

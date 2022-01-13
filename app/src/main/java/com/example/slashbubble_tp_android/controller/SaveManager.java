@@ -20,7 +20,7 @@ public class SaveManager {
      */
     public void writeNewScore(String userName, Number score, String time) {
         Scores scores = new Scores(userName, score, time);
-        App.myRef.child("id :").setValue(scores);
+        App.myRef.child("id :").setValue("scores");
     }
 
     /**

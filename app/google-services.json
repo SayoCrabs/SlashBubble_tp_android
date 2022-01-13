@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "460977224932",
-    "project_id": "slashbubble-828de",
-    "storage_bucket": "slashbubble-828de.appspot.com"
+    "project_number": "201006501983",
+    "project_id": "slashbubble-f1017",
+    "storage_bucket": "slashbubble-f1017.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:460977224932:android:a61f8772d42a1d70a880f1",
+        "mobilesdk_app_id": "1:201006501983:android:0cad21fc268e2168144bea",
         "android_client_info": {
           "package_name": "com.example.slashbubble_tp_android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "460977224932-nrat5i8usgcnlf85cnpga86qrens4lb2.apps.googleusercontent.com",
+          "client_id": "201006501983-l1geqci9u4gt06fjcapibuk20u8ream9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCDxGGvpy05cBNElPjvIrGEIsYpfZvHI4g"
+          "current_key": "AIzaSyBG6YFSkv9EhwKf5vheqsyaI3wQg6abP9M"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "460977224932-nrat5i8usgcnlf85cnpga86qrens4lb2.apps.googleusercontent.com",
+              "client_id": "201006501983-l1geqci9u4gt06fjcapibuk20u8ream9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
