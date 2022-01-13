@@ -139,13 +139,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         textUserName.setText(App.prefs.getString("userName", null));
 
         TextView textBestScore = findViewById(R.id.textBestScore);
-        textBestScore.setText(App.prefs.getInt("bestSore", 0));
+        textBestScore.setText(""+ App.prefs.getInt("bestSore", 0));
 
         TextView textTime = findViewById(R.id.textBestTime);
         textTime.setText(App.prefs.getString("bestTime", null));
 
         // save the local data if actual score is better than the bestScore
-        if (scoreNb >= App.getPrefs().getInt("bestScore", 0)) {
+        if (scoreNb >= App.prefs.getInt("bestScore", 0)) {
             SharedPreferences.Editor editor = App.getPrefs().edit();
             editor.putInt("bestScore", scoreNb);
             editor.putString("bestTime", timerText.getText().toString());
