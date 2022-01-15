@@ -38,6 +38,11 @@
     <string name="pause" translatable="false">pause</string>
     <string name="gameOver" translatable="false">Game Over</string>
 
+    <!-- Game over layout -->
+    <string name="the_best_name">The best :</string>
+    <string name="score" translatable="false">score</string>
+    <string name="the_time">Time :</string>
+
     <!-- Credit -->
     <string name="your_meteo">Your meteo :</string>
     <string name="language">language</string>

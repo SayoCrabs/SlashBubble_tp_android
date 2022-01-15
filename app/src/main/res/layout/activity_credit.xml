@@ -12,6 +12,7 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         app:layout_constraintTop_toBottomOf="@id/textMeteo"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <TextView
@@ -35,4 +36,38 @@
         android:text="@string/back_button"
         android:textColor="@color/black"
         android:onClick="onBack"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:background="@drawable/window"
+        app:layout_constraintTop_toBottomOf="@+id/icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/creditTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:text="@string/credit_button"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/ethnocentric_rg_it"
+            />
+
+        <TextView
+            android:id="@+id/textCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:fontFamily="@font/ethnocentric_rg_it"
+            />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

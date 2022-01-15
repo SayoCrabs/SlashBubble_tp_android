@@ -32,4 +32,6 @@
     <string name="stone_package">Pierre précieuse</string>
     <string name="yellow">Jaune</string>
     <string name="choose_your_bubble_text">Choissisez vos bulles !</string>
+    <string name="the_best_name">Le meilleur :</string>
+    <string name="the_time">Temps :</string>
 </resources>

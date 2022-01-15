@@ -28,6 +28,7 @@ public class CreditActivity extends AppCompatActivity {
     TextView textForecast;
     StringRequest stringRequest;
     RequestQueue queue;
+    TextView textCredit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,17 @@ public class CreditActivity extends AppCompatActivity {
         textForecast.setText(forecast);
 
         getForecast();
+        setTextCredit();
+    }
+
+    private void setTextCredit() {
+        textCredit = findViewById(R.id.textCredit);
+        String longTexte = "Application made in 2021-22 for a final tp in android.\n" +
+                "\n" +
+                "Thanks to Professor Reshad Khoyratty for his teaching and his availability.\n" +
+                "\n" +
+                "Directed by Sandra Bénard B3 ING LOG.";
+        textCredit.setText(longTexte);
     }
 
     /**

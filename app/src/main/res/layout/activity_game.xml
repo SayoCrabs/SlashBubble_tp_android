@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/cl"
     tools:context=".game.GameActivity">
 
 
@@ -12,36 +12,34 @@
         android:id="@+id/layoutPause"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
+        android:background="@drawable/background_credit"
         android:gravity="center"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="3dp"
         android:visibility="gone">
 
         <TextView
             android:id="@+id/textPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="164dp"
-            android:layout_marginBottom="176dp"
+            android:layout_marginBottom="200dp"
+            android:fontFamily="@font/ethnocentric_rg_it"
             android:text="@string/pause"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:fontFamily="@font/ethnocentric_rg_it"
             app:layout_constraintBottom_toTopOf="@+id/resume"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/resume"
             android:layout_width="186dp"
             android:layout_height="59dp"
-            android:layout_marginEnd="112dp"
             android:layout_marginBottom="236dp"
             android:onClick="resume"
             android:text="@string/resume"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,81 +47,96 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        android:gravity="center"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="3dp"
         android:visibility="gone">
 
         <TextView
             android:id="@+id/textGameOver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="132dp"
-            android:layout_marginBottom="176dp"
-            android:layout_gravity="center"
+            android:layout_marginBottom="100dp"
+            android:fontFamily="@font/ethnocentric_rg_it"
             android:text="@string/gameOver"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:fontFamily="@font/ethnocentric_rg_it"
             app:layout_constraintBottom_toTopOf="@+id/layoutBestScore"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <LinearLayout
             android:id="@+id/layoutBestScore"
-            android:layout_width="396dp"
-            android:layout_height="114dp"
-            android:layout_marginBottom="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical"
+            android:gravity="center"
             app:layout_constraintBottom_toTopOf="@+id/quit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:orientation="horizontal">
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ethnocentric_rg_it"
+                android:text="@string/the_best_name"
+                android:textColor="@color/white"
+                android:textSize="25sp"/>
 
             <TextView
                 android:id="@+id/textUserNameBestScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
                 android:fontFamily="@font/ethnocentric_rg_it"
-                android:textColor="@color/purple_200"/>
+                android:text="name"
+                android:textColor="@color/purple_200"
+                android:textSize="25sp" />
 
-            <Space
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:fontFamily="@font/ethnocentric_rg_it"
+                android:text="@string/score"
+                android:textColor="@color/white"
+                android:textSize="25sp"/>
 
             <TextView
                 android:id="@+id/textBestScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
                 android:fontFamily="@font/ethnocentric_rg_it"
-                android:textColor="@color/yellow"/>
+                android:text="0"
+                android:textColor="@color/yellow"
+                android:textSize="25sp" />
 
-            <Space
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:fontFamily="@font/ethnocentric_rg_it"
+                android:text="@string/the_time"
+                android:textColor="@color/white"
+                android:textSize="25sp"/>
 
             <TextView
                 android:id="@+id/textBestTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
                 android:fontFamily="@font/ethnocentric_rg_it"
-                android:textColor="@color/blue"/>
+                android:textColor="@color/blue"
+                android:textSize="25sp"/>
+
         </LinearLayout>
 
         <Button
             android:id="@+id/quit"
-            android:layout_width="186dp"
-            android:layout_height="59dp"
-            android:layout_marginEnd="112dp"
-            android:layout_marginBottom="236dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="200dp"
             android:onClick="quit"
             android:text="@string/quit"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -136,10 +149,10 @@
             android:id="@+id/layoutTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:orientation="horizontal">
+            app:layout_constraintRight_toRightOf="parent">
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -157,10 +170,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="600dp"
-                android:textColor="@color/white"
+                android:fontFamily="@font/ethnocentric_rg_it"
                 android:text="timer"
-                android:textSize="30sp"
-                android:fontFamily="@font/ethnocentric_rg_it"/>
+                android:textColor="@color/white"
+                android:textSize="30sp" />
         </LinearLayout>
 
         <TextView
@@ -169,11 +182,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:background="@drawable/backgroundtextview"
-            android:text="score"
+            android:fontFamily="@font/ethnocentric_rg_it"
+            android:text="@string/score"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:fontFamily="@font/ethnocentric_rg_it"
             app:layout_constraintBottom_toBottomOf="@id/layoutTimer"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -185,22 +198,22 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="406dp"
             android:background="@drawable/backgroundtextview"
+            android:fontFamily="@font/ethnocentric_rg_it"
             android:text="COLOR"
             android:textAlignment="center"
             android:textSize="40sp"
-            android:fontFamily="@font/ethnocentric_rg_it"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent" />
 
         <ImageButton
             android:id="@+id/pauseButton"
-            android:background="@drawable/pausebtn"
             android:layout_width="67dp"
             android:layout_height="67dp"
+            android:background="@drawable/pausebtn"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/containerImage"
@@ -215,34 +228,34 @@
 
             <ImageView
                 android:id="@+id/firstImage"
-                android:transitionName="@string/purple"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/round_violet"/>
+                android:background="@drawable/round_violet"
+                android:transitionName="@string/purple" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/secondImage"
-                android:transitionName="@string/blue"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/round_blue"/>
+                android:background="@drawable/round_blue"
+                android:transitionName="@string/blue" />
 
             <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/thirdImage"
-                android:transitionName="@string/green"
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/round_green"/>
+                android:background="@drawable/round_green"
+                android:transitionName="@string/green" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
