@@ -139,7 +139,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         textUserName.setText(App.prefs.getString("userName", null));
 
         TextView textBestScore = findViewById(R.id.textBestScore);
-        textBestScore.setText(""+ App.prefs.getInt("bestSore", 0));
+        String concatBestScore = "" + App.prefs.getInt("bestScore", 0);
+        textBestScore.setText(concatBestScore);
 
         TextView textTime = findViewById(R.id.textBestTime);
         textTime.setText(App.prefs.getString("bestTime", null));

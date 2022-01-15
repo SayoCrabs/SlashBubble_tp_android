@@ -9,8 +9,9 @@
 
     <LinearLayout
         android:id="@+id/layoutUser"
-        android:layout_width="260dp"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,14 +21,18 @@
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/purple_200"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10sp"
+            android:fontFamily="@font/ethnocentric_rg_it"
             android:text="user name"
-            android:textSize="30dp"/>
+            android:textSize="30sp"/>
 
         <ImageButton
             android:id="@+id/btnModifyUserName"
             android:layout_width="67dp"
             android:layout_height="70dp"
-            android:background="@drawable/questionbtn"/>
+            android:background="@drawable/questionbtn" />
 
     </LinearLayout>
 
@@ -51,7 +56,8 @@
         android:singleLine="true"
         android:text="@string/title"
         android:textColor="@color/white"
-        android:textSize="50dp"
+        android:fontFamily="@font/ethnocentric_rg_it"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -61,7 +67,6 @@
         android:layout_height="298dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@drawable/window"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -71,36 +76,40 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnStart"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/ethnocentric_rg_it"
             android:text="@string/start_button"
             android:textColor="@color/white"
             android:background="@drawable/backgroundbutton"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnShop"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/ethnocentric_rg_it"
             android:text="@string/button_shop"
             android:textColor="@color/white"
             android:background="@drawable/backgroundbutton"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnCredit"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/ethnocentric_rg_it"
             android:text="@string/credit_button"
             android:textColor="@color/white"
             android:background="@drawable/backgroundbutton"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnQuit"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/ethnocentric_rg_it"
             android:text="@string/quit_button"
             android:textColor="@color/white"
             android:background="@drawable/backgroundbutton"/>

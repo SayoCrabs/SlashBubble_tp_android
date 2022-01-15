@@ -46,5 +46,6 @@
     <!-- Shop -->
     <string name="default_package">Default</string>
     <string name="stone_package">Precious stone</string>
+    <string name="choose_your_bubble_text">Choose your bubble !</string>
 
 </resources>

@@ -31,4 +31,5 @@
     <string name="default_package">Défaut</string>
     <string name="stone_package">Pierre précieuse</string>
     <string name="yellow">Jaune</string>
+    <string name="choose_your_bubble_text">Choissisez vos bulles !</string>
 </resources>
